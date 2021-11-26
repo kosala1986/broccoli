@@ -68,9 +68,9 @@ describe('InviteComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    const title = fixture.debugElement.query(By.css('.error-message span')).nativeElement;
+    const error = fixture.debugElement.query(By.css('.error-message span')).nativeElement;
 
-    expect(title.innerHTML).toBe('Email required');
+    expect(error.innerHTML).toBe('Email required');
   });
 
   it('should close the dialog', () => {

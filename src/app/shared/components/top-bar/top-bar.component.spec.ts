@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from "@angular/platform-browser";
 
 import { TopBarComponent } from './top-bar.component';
 
@@ -8,9 +9,9 @@ describe('TopBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TopBarComponent ]
+      declarations: [TopBarComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +20,14 @@ describe('TopBarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should initialize the component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should show company name as title', () => {
+
+    const title = fixture.debugElement.query(By.css('.top-bar-container span')).nativeElement;
+
+    expect(title.innerHTML).toBe('BROCCOLI &amp; CO.');
   });
 });
