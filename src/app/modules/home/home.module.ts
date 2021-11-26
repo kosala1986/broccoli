@@ -7,7 +7,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { MatInputModule } from '@angular/material/input';
 import { UserService } from '../../services/user.service';
 import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
-import { InviteComponent } from './invite-dialog/invite.component';
+import { InviteComponent } from './invite/invite.component';
 
 
 

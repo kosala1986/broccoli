@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { InviteComponent } from '../invite-dialog/invite.component';
+import { InviteComponent } from '../invite/invite.component';
 
 /** This is the middle component of the homepage. */
 @Component({
