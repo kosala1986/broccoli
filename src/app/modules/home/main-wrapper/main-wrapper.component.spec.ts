@@ -1,16 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialog } from '@angular/material/dialog';
 import { MainWrapperComponent } from './main-wrapper.component';
 
 describe('MainWrapperComponent', () => {
   let component: MainWrapperComponent;
   let fixture: ComponentFixture<MainWrapperComponent>;
+  let mockDialog: MatDialog = jasmine.createSpyObj('MatDialog', ['open', 'close']);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainWrapperComponent ]
+      declarations: [MainWrapperComponent],
+      providers: [
+        { provide: MatDialog, useValue: mockDialog },
+      ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +23,13 @@ describe('MainWrapperComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should initialize the component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should open the invite component', () => {
+    component.inviteUser();
+
+    expect(mockDialog.open).toHaveBeenCalled();
   });
 });
