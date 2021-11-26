@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User, UserLabel } from '../../../shared/models/user';
 import { UserService } from '../../../services/user.service';
 import { ErrorService } from '../../../services/error-service';
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   templateUrl: './invite.component.html',
   styleUrls: ['./invite.component.scss']
 })
-export class InviteComponent implements OnInit, OnDestroy {
+export class InviteComponent implements OnInit {
 
   loading$: Observable<boolean>;
 
@@ -23,7 +23,7 @@ export class InviteComponent implements OnInit, OnDestroy {
   errorMsg = '';
 
   constructor(
-    private readonly errorService: ErrorService, 
+    private readonly errorService: ErrorService,
     private loadingService: LoadingService,
     readonly dialogRef: MatDialogRef<InviteComponent>,
     private readonly userService: UserService,) {
@@ -34,17 +34,11 @@ export class InviteComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit(): void {
-  }
-  
+  ngOnInit(): void { }
+
   invite() {
     this.userService.inviteUser(this.user).subscribe(response => {
-     this.dialogRef.close();
+      this.dialogRef.close();
     });
   }
-
-  ngOnDestroy() {
-    this.errorService.getErrorMessage().unsubscribe();
-  }
-
 }

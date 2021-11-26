@@ -1,26 +1,28 @@
+@import "../../../shared/css/colors";
+
 .bottom-bar-container {
-  position: fixed;
-  height: 55px;
-  width: 100%;
-  background: #3f51b5;
-  bottom: 0px;
+  align-items: center;
+  background: $color-light-blue;
+  bottom: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  height: 55px;
+  position: fixed;
+  width: 100%;
 
   p {
-    line-height: 0px;
+    color: $color-white;
     font-size: 10px;
-    color: white;
     font-style: italic;
+    line-height: 0;
   }
 
   mat-icon {
-    height: 8px;
-    width: 8px;
     font-size: 8px;
+    height: 8px;
     margin-right: 2px;
     margin-left: 2px;
+    width: 8px;
   }
 }
