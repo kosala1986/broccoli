@@ -1,48 +1,65 @@
 <div class="invite-container">
-    <h2 mat-dialog-title>Request an invite</h2>
-    <mat-dialog-content>
-        <div class="form-container">
-            <form #inviteForm="ngForm">
-                <mat-form-field appearance="fill">
-                    <mat-label> {{ UserLabel.FULL_NAME }}</mat-label>
-                    <input matInput 
-                           [(ngModel)]="user.name" 
-                           minlength="3" 
-                           name="name" 
-                           id="name" 
-                           required>
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                    <mat-label>{{ UserLabel.EMAIL_ADDRESS }}</mat-label>
-                    <input matInput 
-                           type="email" 
-                           [(ngModel)]="user.email" 
-                           name="email" 
-                           pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" 
-                           id="email" 
-                           required>
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                    <mat-label>{{ UserLabel.CONFIRM_EMAIL_ADDRESS }}</mat-label>
-                    <input matInput 
-                           type="email" 
-                           name="confirmEmail" 
-                           #confirmEmail 
-                           id="confirmEmail" 
-                           required>
-                </mat-form-field>
-            </form>
+    <ng-template [ngIf]="!showsuccessMsg" [ngIfElse]="successMsg">
+        <h2 mat-dialog-title>Request an invite</h2>
+        <mat-dialog-content>
+            <div class="form-container">
+                <form #inviteForm="ngForm">
+                    <mat-form-field appearance="fill">
+                        <mat-label> {{ UserLabel.FULL_NAME }}</mat-label>
+                        <input matInput 
+                            [(ngModel)]="user.name" 
+                            minlength="3" 
+                            name="name" 
+                            id="name" 
+                            required>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ UserLabel.EMAIL_ADDRESS }}</mat-label>
+                        <input matInput 
+                            type="email" 
+                            [(ngModel)]="user.email" 
+                            name="email" 
+                            pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" 
+                            id="email" 
+                            required>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ UserLabel.CONFIRM_EMAIL_ADDRESS }}</mat-label>
+                        <input matInput 
+                            type="email" 
+                            name="confirmEmail" 
+                            #confirmEmail 
+                            id="confirmEmail" 
+                            required>
+                    </mat-form-field>
+                </form>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button mat-raised-button 
+                    color="primary" 
+                    [disabled]="inviteForm.invalid || (confirmEmail.value !== user.email) || (loading$ | async)" 
+                    (click)=invite()>
+                        {{ (loading$ | async) ? UserLabel.LOADING : UserLabel.SEND_BUTTON }}
+                    </button>
+        </mat-dialog-actions>
+        <div class="error-message">
+            <span>{{errorMsg }}</span>
         </div>
-    </mat-dialog-content>
-    <mat-dialog-actions>
-        <button mat-raised-button 
-                color="primary" 
-                [disabled]="inviteForm.invalid || (confirmEmail.value !== user.email) || (loading$ | async)" 
-                (click)=invite()>
-                    {{ (loading$ | async) ? UserLabel.LOADING : UserLabel.SEND_BUTTON }}
+    </ng-template>
+    <ng-template #successMsg>
+        <div class="all-done-container">
+            <h2 mat-dialog-title>All done!</h2>
+            <mat-dialog-content>
+                <p>You will be one of the first to experience Broccoli & Co, when we launch.</p>
+            </mat-dialog-content>
+            <mat-dialog-actions>
+                <button mat-raised-button 
+                        color="primary" 
+                        (click)= closeDialog()>
+                    OK
                 </button>
-    </mat-dialog-actions>
-    <div class="error-message">
-        <span>{{errorMsg }}</span>
-    </div>
+            </mat-dialog-actions>
+        </div>
+    </ng-template>
 </div>

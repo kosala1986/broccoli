@@ -29,3 +29,14 @@
         }
     }
 }
+
+.all-done-container {
+    mat-dialog-content {
+        text-align: center;
+        margin: 15px 0 15px 0;
+    }
+
+    mat-dialog-actions {
+        margin-bottom: 2px;
+    }
+}

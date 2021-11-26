@@ -14,13 +14,15 @@ import { Observable } from 'rxjs';
 })
 export class InviteComponent implements OnInit {
 
-  loading$: Observable<boolean>;
-
-  readonly UserLabel = UserLabel;
+  showsuccessMsg = false;
 
   user: User = { email: '', name: '' };
 
   errorMsg = '';
+
+  loading$: Observable<boolean>;
+
+  readonly UserLabel = UserLabel;
 
   constructor(
     private readonly errorService: ErrorService,
@@ -38,7 +40,11 @@ export class InviteComponent implements OnInit {
 
   invite() {
     this.userService.inviteUser(this.user).subscribe(response => {
-      this.dialogRef.close();
+      this.showsuccessMsg = true;
     });
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 }
