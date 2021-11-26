@@ -1,0 +1,26 @@
+.bottom-bar-container {
+  position: fixed;
+  height: 55px;
+  width: 100%;
+  background: #3f51b5;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    line-height: 0px;
+    font-size: 10px;
+    color: white;
+    font-style: italic;
+  }
+
+  mat-icon {
+    height: 8px;
+    width: 8px;
+    font-size: 8px;
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+}
