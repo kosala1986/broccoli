@@ -7,30 +7,30 @@
                     <mat-form-field appearance="fill">
                         <mat-label> {{ UserLabel.FULL_NAME }}</mat-label>
                         <input matInput 
-                            [(ngModel)]="user.name" 
-                            minlength="3" 
-                            name="name" 
-                            id="name" 
-                            required>
+                               [(ngModel)]="user.name" 
+                               minlength="3" 
+                               name="name" 
+                               id="name" 
+                               required>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>{{ UserLabel.EMAIL_ADDRESS }}</mat-label>
                         <input matInput 
-                            type="email" 
-                            [(ngModel)]="user.email" 
-                            name="email" 
-                            pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" 
-                            id="email" 
-                            required>
+                               type="email" 
+                               [(ngModel)]="user.email" 
+                               name="email" 
+                               pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" 
+                               id="email" 
+                               required>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>{{ UserLabel.CONFIRM_EMAIL_ADDRESS }}</mat-label>
                         <input matInput 
-                            type="email" 
-                            name="confirmEmail" 
-                            #confirmEmail 
-                            id="confirmEmail" 
-                            required>
+                               type="email" 
+                               name="confirmEmail" 
+                               #confirmEmail 
+                               id="confirmEmail" 
+                               required>
                     </mat-form-field>
                 </form>
             </div>
