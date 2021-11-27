@@ -1,6 +1,6 @@
 # Broccoli
 
-This project is a single page Angular application which is for invite users for the Broccoli & Co.
+This project is a single page Angular application which invites users for the Broccoli & Co.
 
 ## Getting started
 
