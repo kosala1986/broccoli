@@ -6,7 +6,10 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { LoadingService } from '../../../services/loading.service';
 import { Observable } from 'rxjs';
 
-/** This component is a dialog model which is used to invite users to the Broccoli & Co. */
+/**
+ * This component is a dialog model which is used to invite users to the
+ * Broccoli & Co.
+ */
 @Component({
   selector: 'invite',
   templateUrl: './invite.component.html',
@@ -28,7 +31,7 @@ export class InviteComponent implements OnInit {
     private readonly errorService: ErrorService,
     private loadingService: LoadingService,
     readonly dialogRef: MatDialogRef<InviteComponent>,
-    private readonly userService: UserService,) {
+    private readonly userService: UserService, ) {
 
     this.loading$ = this.loadingService.loading$;
     this.errorService.getErrorMessage().subscribe((message) => {

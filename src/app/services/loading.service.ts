@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-// Number of milliseconds after which hide signal is emitted, if no show signal is emitted in the interim.
+// Number of milliseconds after which hide signal is emitted, if no show signal
+// is emitted in the interim.
 const HIDE_THRESHOLD = 500;
 
 @Injectable({
