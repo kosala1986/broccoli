@@ -31,7 +31,8 @@ export class InviteComponent implements OnInit {
     private readonly errorService: ErrorService,
     private loadingService: LoadingService,
     readonly dialogRef: MatDialogRef<InviteComponent>,
-    private readonly userService: UserService, ) {
+    private readonly userService: UserService,
+  ) {
 
     this.loading$ = this.loadingService.loading$;
     this.errorService.getErrorMessage().subscribe((message) => {

@@ -12,7 +12,8 @@ import { ErrorService } from './error-service';
   providedIn: 'root'
 })
 export class HttpService {
-  constructor(private readonly http: HttpClient,
+  constructor(
+    private readonly http: HttpClient,
     private readonly errorService: ErrorService,
   ) { }
 
