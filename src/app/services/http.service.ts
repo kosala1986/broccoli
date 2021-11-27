@@ -59,5 +59,4 @@ export class HttpService {
     }
     return throwError(errorMessage);
   }
-
 }
