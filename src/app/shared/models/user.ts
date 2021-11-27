@@ -13,7 +13,6 @@ export enum UserLabel {
     LOADING = 'Sending, please wait...',
 }
 
-
 /** User model */
 export class User {
     constructor(user: Partial<User> = {}) {
