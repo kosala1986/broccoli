@@ -16,13 +16,16 @@ export class ErrorService {
   constructor() { }
 
   setErrorMsg(response: HttpErrorResponse) {
-    if (response.status === CODE_400) {
-      const [httpError, msg] = response.error.errorMessage.split(':');
-      this.error$.next(msg.replace(/"/g, ''));
+    if (response.error instanceof ErrorEvent) {
+      this.error$.next(`Error: ${response.error.message}`);
     } else {
-      this.error$.next(response.error.errorMessage);
+      if (response.status === CODE_400) {
+        const [httpError, msg] = response.error.errorMessage.split(':');
+        this.error$.next(msg.replace(/"/g, ''));
+      } else {
+        this.error$.next(response.error.errorMessage);
+      }
     }
-
   }
 
   getErrorMessage() {

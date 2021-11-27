@@ -19,11 +19,11 @@ export class HttpService {
   /** GET method which returns Observable of T. */
   get<T>(url: string, p?: HttpParams): Observable<HttpResponse<T>> {
     let header = this.createHeader();
-    return this.http.get<T>(url, { headers: header, params: p, observe: 'response', },)
+    return this.http.get<T>(url, { headers: header, params: p, observe: 'response', })
       .pipe(
         catchError((error: HttpErrorResponse) => {
           this.errorService.setErrorMsg(error);
-          return throwError(error);
+          return this.handleError(error);
         })
       );
   }
@@ -37,7 +37,7 @@ export class HttpService {
       .pipe(
         catchError((error: HttpErrorResponse) => {
           this.errorService.setErrorMsg(error);
-          return throwError(error);
+          return this.handleError(error);
         })
       );
   }
@@ -47,6 +47,19 @@ export class HttpService {
       .set('Accept', 'application/json')
       .set('Content-Type', 'application/json');
     return header;
+  }
+
+  /**
+ * Transforms error messages into developer friendly messages. 
+ */
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage: string = '';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Error: ${error.message}`;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(errorMessage);
   }
 
 }
