@@ -1,4 +1,4 @@
-/** User model */
+/** This represents user properties and it's types. */
 export interface User {
     name: string;
     email: string;
@@ -11,4 +11,13 @@ export enum UserLabel {
     CONFIRM_EMAIL_ADDRESS = 'Confirm email',
     SEND_BUTTON = 'Send',
     LOADING = 'Sending, please wait...',
+}
+
+
+/** User model */
+export class User {
+    constructor(user: Partial<User> = {}) {
+        this.email = user.email || '';
+        this.name = user.name || '';
+    }
 }

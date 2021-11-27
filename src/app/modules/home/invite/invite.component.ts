@@ -16,7 +16,7 @@ export class InviteComponent implements OnInit {
 
   showsuccessMsg = false;
 
-  user: User = { email: '', name: '' };
+  user: User = new User();
 
   errorMsg = '';
 
