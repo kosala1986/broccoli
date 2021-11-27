@@ -10,5 +10,5 @@ export enum UserLabel {
     EMAIL_ADDRESS = 'Email',
     CONFIRM_EMAIL_ADDRESS = 'Confirm email',
     SEND_BUTTON = 'Send',
-    LOADING = 'Sending, please wait..',
+    LOADING = 'Sending, please wait...',
 }
