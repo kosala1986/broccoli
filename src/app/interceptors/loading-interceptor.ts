@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { LoadingService } from '../services/loading.service';
 import { finalize } from 'rxjs/operators';
 
-/** A HTTP interceptor for showing/hiding a loading indicator */
+/** A HTTP interceptor for showing/hiding a loading indicator. */
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
   private requests: HttpRequest<any>[] = [];
