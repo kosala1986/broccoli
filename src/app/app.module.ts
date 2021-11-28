@@ -6,7 +6,7 @@ import { SharedModule } from './shared/shared_module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { httpInterceptorProviders } from './interceptors/providers'
+import { httpInterceptorProviders } from './services/providers'
 
 @NgModule({
   declarations: [
