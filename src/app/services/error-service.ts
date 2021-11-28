@@ -20,7 +20,7 @@ export class ErrorService {
       this.error$.next(`Error: ${response.error.message}`);
     } else {
       if (response.status === CODE_400) {
-        const [httpError, msg] = response.error.errorMessage.split(':');
+        const [, msg] = response.error.errorMessage.split(':');
         this.error$.next(msg.replace(/"/g, ''));
       } else {
         this.error$.next(response.error.errorMessage);
